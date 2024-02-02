@@ -1,0 +1,41 @@
+.main-content {
+    display: flex;
+    justify-content: space-between;
+    padding: 1em;
+}
+
+.buttons {
+   display: flex;
+   flex-direction: column;
+}
+
+.req-list {
+    width: 80%;
+    height: 43.5em;
+    overflow: auto;
+    border: solid 1px #000;
+    border-radius: 0.5em;
+}
+
+.button, .buttons > h2 {
+    margin-bottom: 1em;
+    width: 16em;
+    height: 3em;
+    padding-top: 1em;
+    color: #bbb7b7;
+    text-align: center;
+    border: solid 1px #000;
+    border-radius: 0.5em;
+}
+
+.buttons > h2 {
+    font-weight: bold;
+}
+
+.button {
+    background-color: #252525;
+}
+
+.button:hover {
+    background-color: #707070;
+}

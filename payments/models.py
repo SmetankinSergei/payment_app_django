@@ -11,7 +11,7 @@ class PaymentStatus(Enum):
 
 class Payment(models.Model):
     amount = models.PositiveIntegerField()
-    requisites = models.ForeignKey(to='Requisites', on_delete=models.PROTECT)
+    requisites = models.ForeignKey(to='Requisite', on_delete=models.PROTECT)
     status = models.CharField(max_length=10, choices=[(status.value, status.name) for status in PaymentStatus])
 
 
@@ -25,7 +25,7 @@ class SourceType(Enum):
     DEBIT = 'debit'
 
 
-class Requisites(models.Model):
+class Requisite(models.Model):
     payment_type = models.CharField(max_length=10,
                                     choices=[(payment_type.value, payment_type.name) for payment_type in PaymentType])
 

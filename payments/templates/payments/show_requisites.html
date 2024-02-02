@@ -1,1 +1,27 @@
 {% extends 'base.html' %}
+{% load static %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/show_requisites.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="correction" style="margin-top:4em;"></div>
+
+<div class="main-content">
+    <div class="buttons">
+        <h2>SORTING</h2>
+        <a href="?feature=payment_type" class="button">payment_type</a>
+        <a href="?feature=source_type" class="button">source_type</a>
+        <a href="?feature=full_name" class="button">full_name</a>
+        <a href="?feature=phone" class="button">phone</a>
+        <a href="?feature=limit" class="button">limit</a>
+    </div>
+
+    <div class="req-list">
+        {% for requisite in requisites %}
+            {{ requisite.full_name }}<br>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
