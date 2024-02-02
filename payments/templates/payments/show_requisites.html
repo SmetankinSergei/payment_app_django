@@ -18,10 +18,20 @@
         <a href="?feature=limit" class="button">limit</a>
     </div>
 
-    <div class="req-list">
-        {% for requisite in requisites %}
-            {{ requisite.full_name }}<br>
-        {% endfor %}
+    <div class="req-list-block">
+        <div class="search">
+            <form method="get" action="">
+                <input type="text" class="search-input" name="query">
+                <button type="submit" class="search-button">search</button>
+            </form>
+        </div>
+
+        <div class="req-list">
+            {% for requisite in requisites %}
+                {{ requisite.full_name }}<br>
+                {{ requisite.limit }}<br>
+            {% endfor %}
+        </div>
     </div>
 </div>
 {% endblock %}

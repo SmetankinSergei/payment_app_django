@@ -1,6 +1,6 @@
 from django.shortcuts import render
 
-from payments.templatetags.requisites_tags import get_requisites
+from payments.templatetags.requisites_tags import get_requisites, get_search_result
 
 
 def start_page(request):
@@ -12,10 +12,11 @@ def show_payments(request):
 
 
 def show_requisites(request):
-    if request.GET.get('feature'):
-        requisites = get_requisites(request.GET.get('feature'))
+    query = request.GET.get('query')
+    if query:
+        requisites = get_search_result(query)
     else:
-        requisites = get_requisites()
+        requisites = get_requisites(request.GET.get('feature'))
     context = {
         'title': 'requisites',
         'requisites': requisites,
