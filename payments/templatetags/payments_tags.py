@@ -1,7 +1,6 @@
 from django import template
-from django.db.models import Q
 
-from payments.models import Requisite, Payment
+from payments.models import Payment
 
 register = template.Library()
 

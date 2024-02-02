@@ -11,9 +11,9 @@
 <div class="main-content">
     <div class="buttons">
         <h2>SORTING</h2>
-        <a href="?feature=payment_type" class="button">payment_type</a>
-        <a href="?feature=source_type" class="button">source_type</a>
-        <a href="?feature=full_name" class="button">full_name</a>
+        <a href="?feature=payment_type" class="button">payment type</a>
+        <a href="?feature=source_type" class="button">source type</a>
+        <a href="?feature=full_name" class="button">full name</a>
         <a href="?feature=phone" class="button">phone</a>
         <a href="?feature=limit" class="button">limit</a>
     </div>
@@ -27,10 +27,26 @@
         </div>
 
         <div class="req-list">
-            {% for requisite in requisites %}
-                {{ requisite.full_name }}<br>
-                {{ requisite.limit }}<br>
-            {% endfor %}
+
+            <table>
+                <tr class="table-head">
+                    <th>Payment type</th>
+                    <th>Source type</th>
+                    <th>Full name</th>
+                    <th>Phone</th>
+                    <th>Limit</th>
+                </tr>
+                {% for requisite in requisites %}
+                <tr>
+                    <td>{{ requisite.payment_type }}</td>
+                    <td>{{ requisite.source_type }}</td>
+                    <td>{{ requisite.full_name }}</td>
+                    <td>{{ requisite.phone }}</td>
+                    <td>{{ requisite.limit }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+
         </div>
     </div>
 </div>

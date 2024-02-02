@@ -5,10 +5,6 @@ from payments.templatetags.payments_tags import get_payments
 from payments.templatetags.requisites_tags import get_requisites, get_search_result
 
 
-def start_page(request):
-    return render(request, 'payments/start_page.html', {'title': 'start page'})
-
-
 def show_payments(request):
     context = {
         'title': 'payments',

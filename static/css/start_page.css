@@ -8,8 +8,21 @@
 
 .table {
     width: 49%;
+    overflow: auto;
     border: solid 1px #000;
     border-radius: 0.5em;
+}
+
+.payments-table {
+    width: 38%;
+}
+
+.requisites-table {
+    width: 60%;
+}
+
+table {
+    width: 100%;
 }
 
 .table-label {
@@ -17,5 +30,12 @@
     font-weight: bold;
     text-align: center;
     border-bottom: solid 1px #000;
+    background-color: #707070;
+}
+
+.table-head {
+    height: 2em;
+    font-weight: bold;
+    font-size: 1.5em;
     background-color: #707070;
 }

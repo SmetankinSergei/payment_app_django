@@ -10,19 +10,48 @@
 
 <div class="tables">
     {% if user.is_admin %}
-        <div class="payments-table table">
+        <div class="payments-table table" id="payments-table">
             <p class="table-label">PAYMENTS</p>
-            {% for payment in payments %}
 
-            {% endfor %}
+            <table>
+                <tr class="table-head">
+                    <th>Amount</th>
+                    <th>Requisites</th>
+                    <th>Status</th>
+                </tr>
+                {% for payment in payments %}
+                <tr>
+                    <td>{{ payment.amount }}</td>
+                    <td>{{ payment.requisites.full_name }}</td>
+                    <td>{{ payment.status }}</td>
+                </tr>
+                {% endfor %}
+            </table>
         </div>
     {% endif %}
 
-    <div class="requisites-table table">
+    <div class="requisites-table table" id="requisites-table">
         <p class="table-label">REQUISITES</p>
-            {% for requisite in requisites %}
 
+        <table>
+            <tr class="table-head">
+                <th>Payment type</th>
+                <th>Source type</th>
+                <th>Full name</th>
+                <th>Phone</th>
+                <th>Limit</th>
+            </tr>
+            {% for requisite in requisites %}
+            <tr>
+                <td>{{ requisite.payment_type }}</td>
+                <td>{{ requisite.source_type }}</td>
+                <td>{{ requisite.full_name }}</td>
+                <td>{{ requisite.phone }}</td>
+                <td>{{ requisite.limit }}</td>
+            </tr>
             {% endfor %}
+        </table>
+
     </div>
 </div>
 {% endblock %}
