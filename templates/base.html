@@ -34,7 +34,7 @@
                         {% if user.is_authenticated %}
                         <p>username: <span class="username">{{ user.username|upper }}</span></p>
                         {% else %}
-                        <a href="">SIGN UP</a>
+                        <a href="{% url 'users:register' %}">SIGN UP</a>
                         {% endif %}
                     </div>
                     <pre> / </pre>
