@@ -9,8 +9,10 @@
 .table {
     width: 49%;
     overflow: auto;
+    color: #252525;
     border: solid 1px #000;
     border-radius: 0.5em;
+    position: relative;
 }
 
 .payments-table {
@@ -38,4 +40,43 @@ table {
     font-weight: bold;
     font-size: 1.5em;
     background-color: #707070;
+}
+
+.pagination {
+    border-top: solid 1px #000;
+    position: absolute;
+    width: 100%;
+    height: 2em;
+    bottom: 0em;
+    background-color: #707070;
+}
+
+.step-links {
+    display: flex;
+    justify-content: space-between;
+}
+
+.pages-buttons {
+    display: flex;
+}
+
+.pages-buttons > a, .pages-buttons > div {
+    width: 5em;
+    height: 2em;
+    padding-top: 0.5em;
+    text-align: center;
+    color: #252525;
+    border-right: solid 1px #000;
+}
+
+.pages-buttons > a:hover {
+    background-color: #505050;
+}
+
+.next-button {
+    border-left: solid 1px #000;
+}
+
+.current {
+    padding: 0.5em;
 }

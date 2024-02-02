@@ -19,14 +19,44 @@
                     <th>Requisites</th>
                     <th>Status</th>
                 </tr>
-                {% for payment in payments %}
-                <tr>
-                    <td>{{ payment.amount }}</td>
-                    <td>{{ payment.requisites.full_name }}</td>
-                    <td>{{ payment.status }}</td>
-                </tr>
-                {% endfor %}
+                <tbody id="payments-tbody">
+                    {% for payment in payments %}
+                        <tr>
+                            <td>{{ payment.amount }}</td>
+                            <td>{{ payment.requisites.full_name }}</td>
+                            <td>{{ payment.status }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
             </table>
+
+            <div class="pagination">
+                <div class="step-links">
+                    <div class="pages-buttons">
+                        {% if payments.has_previous %}
+                            <a href="?payments_page=1">first</a>
+                            <a href="?payments_page={{ payments.previous_page_number }}">previous</a>
+                        {% else %}
+                            <div style="color:#606060">first</div>
+                            <div style="color:#606060">previous</div>
+                        {% endif %}
+                    </div>
+
+                    <div class="current">
+                        Page {{ payments.number }} of {{ payments.paginator.num_pages }}.
+                    </div>
+
+                    <div class="pages-buttons">
+                        {% if payments.has_next %}
+                            <a href="?payments_page={{ payments.next_page_number }}" class="next-button">next</a>
+                            <a href="?payments_page={{ payments.paginator.num_pages }}">last</a>
+                        {% else %}
+                            <div style="color:#606060" class="next-button">next</div>
+                            <div style="color:#606060">last</div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
         </div>
     {% endif %}
 
@@ -41,17 +71,47 @@
                 <th>Phone</th>
                 <th>Limit</th>
             </tr>
-            {% for requisite in requisites %}
-            <tr>
-                <td>{{ requisite.payment_type }}</td>
-                <td>{{ requisite.source_type }}</td>
-                <td>{{ requisite.full_name }}</td>
-                <td>{{ requisite.phone }}</td>
-                <td>{{ requisite.limit }}</td>
-            </tr>
-            {% endfor %}
+            <tbody id="requisites-tbody">
+                {% for requisite in requisites %}
+                    <tr>
+                        <td>{{ requisite.payment_type }}</td>
+                        <td>{{ requisite.source_type }}</td>
+                        <td>{{ requisite.full_name }}</td>
+                        <td>{{ requisite.phone }}</td>
+                        <td>{{ requisite.limit }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
         </table>
 
+        <div class="pagination">
+            <span class="step-links">
+                <div class="pages-buttons">
+                    {% if requisites.has_previous %}
+                        <a href="?requisites_page=1">first</a>
+                        <a href="?requisites_page={{ requisites.previous_page_number }}">previous</a>
+                    {% else %}
+                        <div style="color:#606060">first</div>
+                        <div style="color:#606060">previous</div>
+                    {% endif %}
+                </div>
+
+                <div class="current">
+                    Page {{ requisites.number }} of {{ requisites.paginator.num_pages }}.
+                </div>
+
+                <div class="pages-buttons">
+                    {% if requisites.has_next %}
+                        <a href="?requisites_page={{ requisites.next_page_number }}" class="next-button">next</a>
+                        <a href="?requisites_page={{ requisites.paginator.num_pages }}">last</a>
+                    {% else %}
+                        <div style="color:#606060" class="next-button">next</div>
+                        <div style="color:#606060">last</div>
+                    {% endif %}
+                </div>
+            </span>
+        </div>
     </div>
 </div>
+
 {% endblock %}
