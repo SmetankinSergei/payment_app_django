@@ -1,0 +1,21 @@
+.tables {
+    display: flex;
+    justify-content: space-between;
+    width: 95%;
+    height: 43.5em;
+    margin: 1em auto;
+}
+
+.table {
+    width: 49%;
+    border: solid 1px #000;
+    border-radius: 0.5em;
+}
+
+.table-label {
+    font-size: 2em;
+    font-weight: bold;
+    text-align: center;
+    border-bottom: solid 1px #000;
+    background-color: #707070;
+}

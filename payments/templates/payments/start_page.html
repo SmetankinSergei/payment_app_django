@@ -1,1 +1,28 @@
 {% extends 'base.html' %}
+{% load static %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/start_page.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="correction" style="margin:2em"></div>
+
+<div class="tables">
+    {% if user.is_admin %}
+        <div class="payments-table table">
+            <p class="table-label">PAYMENTS</p>
+            {% for payment in payments %}
+
+            {% endfor %}
+        </div>
+    {% endif %}
+
+    <div class="requisites-table table">
+        <p class="table-label">REQUISITES</p>
+            {% for requisite in requisites %}
+
+            {% endfor %}
+    </div>
+</div>
+{% endblock %}
