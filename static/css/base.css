@@ -114,3 +114,23 @@ body {
     padding: 0.5em;
     color: #bbb7b7;
 }
+
+.auth-buttons {
+    font-size: 2em;
+    display: flex;
+    margin-right: 10em;
+    padding-top: 0.5em;
+    justify-content: flex-end;
+}
+
+.left-side > a, .right-side > a {
+    color: #bbb7b7;
+}
+
+.left-side > a:hover, .right-side > a:hover {
+    opacity: 0.8;
+}
+
+.username {
+    color: red;
+}

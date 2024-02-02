@@ -60,6 +60,7 @@
     text-align: center;
     border: solid 1px #000;
     border-radius: 0.5em;
+    background-color: #707070;
 }
 
 .buttons > h2 {

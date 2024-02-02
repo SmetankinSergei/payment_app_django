@@ -28,7 +28,25 @@
         </div>
 
         <div class="main-field ">
-            <div class="header"></div>
+            <div class="header">
+                <div class="auth-buttons">
+                    <div class="left-side">
+                        {% if user.is_authenticated %}
+                        <p>username: <span class="username">{{ user.username|upper }}</span></p>
+                        {% else %}
+                        <a href="">SIGN UP</a>
+                        {% endif %}
+                    </div>
+                    <pre> / </pre>
+                    <div class="right-side">
+                        {% if user.is_authenticated %}
+                        <a href="{% url 'users:logout' %}">LOGOUT</a>
+                        {% else %}
+                        <a href="{% url 'users:login' %}">LOGIN</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
 
             {% block content %}{% endblock %}
 

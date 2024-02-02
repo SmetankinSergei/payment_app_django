@@ -1,7 +1,7 @@
 from django.core.management.base import BaseCommand
 from faker import Faker
 
-from payments.models import Requisites, PaymentType, SourceType, Payment, PaymentStatus
+from payments.models import Requisite, PaymentType, SourceType, Payment, PaymentStatus
 
 fake = Faker()
 
@@ -11,7 +11,7 @@ class Command(BaseCommand):
 
     def handle(self, *args, **kwargs):
         for _ in range(100):
-            Requisites.objects.create(
+            Requisite.objects.create(
                 payment_type=fake.random_element(elements=[pt.value for pt in PaymentType]),
                 source_type=fake.random_element(elements=[st.value for st in SourceType]),
                 full_name=fake.name(),
@@ -22,7 +22,7 @@ class Command(BaseCommand):
         for _ in range(5000):
             Payment.objects.create(
                 amount=fake.random_number(),
-                requisites=fake.random_element(elements=Requisites.objects.all()),
+                requisites=fake.random_element(elements=Requisite.objects.all()),
                 status=fake.random_element(elements=[ps.value for ps in PaymentStatus]),
             )
 
