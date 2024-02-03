@@ -49,15 +49,21 @@ def show_payments(request):
 @login_required
 def show_requisites(request):
     query = request.GET.get('query')
+    requisites = get_requisites(request.GET.get('feature'))
+
     if query:
         requisites = get_search_result(query)
-    else:
-        requisites = get_requisites(request.GET.get('feature'))
+
     context = {
         'title': 'requisites',
         'requisites': requisites,
     }
-    return render(request, 'payments/show_requisites.html', context)
+
+    if request.headers.get('x-requested-with') == 'XMLHttpRequest':
+        return render(request, 'payments/requisites_list.html', context)
+    else:
+        return render(request, 'payments/show_requisites.html', context)
+
 
 
 @swagger_auto_schema(

@@ -11,20 +11,22 @@
 <div class="main-content">
     <div class="buttons">
         <h2>SORTING</h2>
-        <a href="?feature=payment_type" class="button">payment type</a>
-        <a href="?feature=source_type" class="button">source type</a>
-        <a href="?feature=full_name" class="button">full name</a>
-        <a href="?feature=phone" class="button">phone</a>
-        <a href="?feature=limit" class="button">limit</a>
+        <a href="?feature=payment_type" class="button sorting-link">payment type</a>
+        <a href="?feature=source_type" class="button sorting-link">source type</a>
+        <a href="?feature=full_name" class="button sorting-link">full name</a>
+        <a href="?feature=phone" class="button sorting-link">phone</a>
+        <a href="?feature=limit" class="button sorting-link">limit</a>
     </div>
+
 
     <div class="req-list-block">
         <div class="search">
-            <form method="get" action="">
+            <form id="searchForm" method="get" action="">
                 <input type="text" class="search-input" name="query">
                 <button type="submit" class="search-button">search</button>
             </form>
         </div>
+
 
         <div class="req-list">
 
@@ -50,4 +52,38 @@
         </div>
     </div>
 </div>
+
+<script>
+    $(document).ready(function() {
+        $('#searchForm').submit(function(event) {
+            event.preventDefault();
+            var formData = $(this).serialize();
+            $.ajax({
+                type: 'GET',
+                url: '{% url "payments:show_requisites" %}',
+                data: formData,
+                success: function(data) {
+                    $('.req-list').html(data);
+                }
+            });
+        });
+    });
+</script>
+
+<script>
+    $(document).ready(function() {
+        $('.sorting-link').click(function(event) {
+            event.preventDefault();
+            var url = $(this).attr('href');
+            $.ajax({
+                type: 'GET',
+                url: url,
+                success: function(data) {
+                    $('.req-list').html(data);
+                }
+            });
+        });
+    });
+</script>
+
 {% endblock %}

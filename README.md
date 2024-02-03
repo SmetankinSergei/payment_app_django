@@ -26,6 +26,7 @@
     <li>PostgreSQL</li>
     <li>HTML</li>
     <li>CSS</li>
+    <li>Ajax</li>
 </ul>
 
 <p style="font-size:14px;">Для автоматического заполнения таблиц предусмотрен механизм, вызываемый командой:<br>

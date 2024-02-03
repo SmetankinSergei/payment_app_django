@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="{% static 'css/null_style.css' %}">
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
     {% block style %}{% endblock %}
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 </head>
 <body>
     <div class="base-field">
@@ -27,8 +28,12 @@
             {% endfor %}
 
             {% if not user.is_admin %}
-            <div class="permission-warning">Warning!<br>Your status is <span class="status-name">user</span>.<br>
-            Content accessible to the <span class="status-name">admin</span> is closed to you.</div>
+            <div class="permission-warning">
+                Warning!<br>Your status is <span class="status-name">
+                {% if user.is_authenticated %}user{% else %}unauthorized user{% endif %}</span>.<br>
+                Content accessible to the <span class="status-name">
+                {% if user.is_authenticated %}admin{% else %}authorized user{% endif %}</span> is closed to you.
+            </div>
             {% endif %}
         </div>
 
