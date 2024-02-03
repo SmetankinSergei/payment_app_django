@@ -25,6 +25,11 @@
                     <a class="section-button" href="{% url section.url %}">{{ section.name }}</a>
                 {% endif %}
             {% endfor %}
+
+            {% if not user.is_admin %}
+            <div class="permission-warning">Warning!<br>Your status is <span class="status-name">user</span>.<br>
+            Content accessible to the <span class="status-name">admin</span> is closed to you.</div>
+            {% endif %}
         </div>
 
         <div class="main-field ">

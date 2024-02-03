@@ -1,6 +1,5 @@
 from enum import Enum
 
-from django.contrib.auth.models import AbstractUser
 from django.db import models
 
 
@@ -33,5 +32,5 @@ class Requisite(models.Model):
     source_type = models.CharField(max_length=10,
                                    choices=[(source_type.value, source_type.name) for source_type in SourceType])
     full_name = models.CharField(max_length=250)
-    phone = models.CharField(max_length=15)
+    phone = models.CharField(max_length=25)
     limit = models.PositiveIntegerField()

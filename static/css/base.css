@@ -134,3 +134,12 @@ body {
 .username {
     color: red;
 }
+
+.permission-warning {
+    margin-top: 2em;
+    font-size: 1.5em;
+}
+
+.status-name {
+    color: red;
+}
