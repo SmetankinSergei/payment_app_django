@@ -65,7 +65,6 @@ def show_requisites(request):
         return render(request, 'payments/show_requisites.html', context)
 
 
-
 @swagger_auto_schema(
     method='get',
     responses={200: 'OK', 404: 'Not Found'},

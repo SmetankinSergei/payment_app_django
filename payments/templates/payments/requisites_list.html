@@ -1,0 +1,18 @@
+<table>
+    <tr class="table-head">
+        <th>Payment type</th>
+        <th>Source type</th>
+        <th>Full name</th>
+        <th>Phone</th>
+        <th>Limit</th>
+    </tr>
+    {% for requisite in requisites %}
+    <tr>
+        <td>{{ requisite.payment_type }}</td>
+        <td>{{ requisite.source_type }}</td>
+        <td>{{ requisite.full_name }}</td>
+        <td>{{ requisite.phone }}</td>
+        <td>{{ requisite.limit }}</td>
+    </tr>
+    {% endfor %}
+</table>
